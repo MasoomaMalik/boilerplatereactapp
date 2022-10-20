@@ -6,8 +6,8 @@ import {
 } from "firebase/auth";
 import { getDatabase, ref, set, push, onValue, get } from "firebase/database";
 
-const auth = getAuth(app);
-const database = getDatabase(app);
+export const auth = getAuth(app);
+export const database = getDatabase(app);
 
 let signUpUser = (obj) => {
   let { email, password, userName, contact } = obj;
@@ -52,6 +52,7 @@ let loginUser = (obj) => {
           // console.log(status);
           if (status) {
             resolve(e.val());
+            // return user.uid;
           } else {
             reject("Data Not Found :(");
           }
